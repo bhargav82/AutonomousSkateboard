@@ -1,0 +1,23 @@
+autonomous-skateboard/
+├── CMakeLists.txt
+├── README.md
+├── .gitignore
+│
+├── include/
+│   ├── sensor.h
+│   ├── spsc_queue.h
+│   ├── controller.h
+│   └── shared_state.h
+│
+├── src/
+│   ├── sensor.cpp
+│   ├── controller.cpp
+│   ├── shared_state.cpp
+│   └── main.cpp
+│
+├── tests/
+│   └── test_basic.cpp
+│
+└── logs/
+    └── (generated logs)
+

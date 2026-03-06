@@ -1,39 +1,26 @@
 // Defines the sensor abstraction
 #pragma once
 #include <stdint.h>
-
-enum class Position : uint8_t {
-    FrontLeft,
-    FrontRight,
-    BackLeft,
-    BackRight
-};
-
-enum class Status : uint8_t {
-    HEALTHY,
-    STALE,
-    ERROR,
-    CALIBRATING
-};
+#include "top_level/enums.h"
 
 class Sensor {
 private:
-   
-    Position position;          // fl, fr, bl, br
-    Status status;
-    bool last_reading_is_valid;
-    uint8_t sensor_id;
-    uint8_t mount_angle;        // degree to front axis
-    uint8_t min_range_cm;
-    uint8_t max_range_cm;
-
-    uint32_t raw_distance_cm;
     uint32_t filtered_distance;
+    uint32_t raw_distance_cm;
     uint32_t last_recorded_time_ms;
     uint32_t consecutive_invalids;
     static constexpr uint32_t stale_timeout_ms = 1000;
     static constexpr uint32_t max_consecutive_invalids = 10;
 
+    uint8_t sensor_id;
+    uint8_t mount_angle;        // degree to front axis
+    uint8_t min_range_cm;
+    uint8_t max_range_cm;
+   
+    Position position;          // fl, fr, bl, br
+    Status status;
+    bool last_reading_is_valid;
+   
 
 public:
 
